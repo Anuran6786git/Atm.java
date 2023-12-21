@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Atm {
- private static final String User_Id = "1234"; 
- private static final String Pin = "5678"; // 
+ private static final String User_Id = "6534"; 
+ private static final String Pin = "7542"; 
  private double bal; 
  public static void main(String[] args) {
   Atm atm = new Atm();
@@ -73,14 +73,14 @@ System.out.println("Insufficient funds.");
 }
 public void deposit(double A) {
 bal+= A;
-System.out.println("Rs" + A + " deposited successfully.");
+System.out.println("Rs" + A + " your funds deposited successfully.");
  System.out.println("New balance: Rs" + bal);
     }
     public void transfer(double A, String recipient) {
         if (bal >= A) {
             bal -= A;
-            System.out.println("Rs" + A + " transferred to account " + recipient + " successfully.");
-            System.out.println("New balance: Rs" + bal);
+            System.out.println("Rs" + A + " is transferred to account " + recipient + " successfully.");
+            System.out.println("your New balance: Rs" + bal);
         } else {
             System.out.println("Insufficient funds.");
         }
