@@ -1,19 +1,19 @@
 import java.util.Scanner;
-public class Atm {
- private static final String User_Id = "6534"; 
- private static final String Pin = "7542"; 
+public class Ai {
+ private static final String U.I = "6534"; 
+ private static final String P = "7542"; 
  private double bal; 
  public static void main(String[] args) {
-  Atm atm = new Atm();
+  Ai ai = new Ai();
   Scanner scanner = new Scanner(System.in);
    System.out.println("-------------------");
-  System.out.println("Welcome to the ATM");
+  System.out.println("WELCOME TO THE ATM");
    System.out.println("\n-----------------");
   System.out.print("Please enter your user id: ");
  String userId = scanner.nextLine();
 System.out.print("Please enter your pin: ");
 String Pin = scanner.nextLine();
- if (!userId.equals(User_Id) || !Pin.equals(Pin))
+ if (!userId.equals(U.I) || !Pin.equals(P))
   {
 System.out.println("You have  entered Invalid user id or pin");
  return;
@@ -31,24 +31,24 @@ System.out.println("1.Transactions History");
 int opt = scanner.nextInt();
  switch (opt){
  case 1:
-atm.TransactionHistory();
+ai.TH();
 break;
 case 2:
 System.out.print("Enter the amount to withdraw: ");
 double wA = scanner.nextDouble();
-atm.withdraw(wA);
+ai.W(wA);
 break;
 case 3:
 System.out.print("Enter the amount to deposit: ");
 double dA = scanner.nextDouble();
-atm.deposit(dA);
+ai.D(dA);
 break;
 case 4:
  System.out.print("Enter the amount to transfer: ");
 double tA = scanner.nextDouble();
 System.out.print(" Please enter the recipient's account number: ");
- String recipient = scanner.next();
- atm.transfer(tA,recipient);
+ String r = scanner.next();
+ ai.T(tA,r);
  break;
  case 5:
  System.out.println("Exiting....");
@@ -59,10 +59,10 @@ break;
  }
 }
 }
-public void TransactionHistory() {
+public void TH() {
  System.out.println("Transaction History:");
  }
- public void withdraw(double A) {
+ public void W(double A) {
  if (bal >= A) {
 bal-= A;
 System.out.println("Rs" + A + " withdrawn successfully.");
@@ -71,15 +71,15 @@ System.out.println("New balance: Rs" + bal);
 System.out.println("Insufficient funds.");
  }
 }
-public void deposit(double A) {
+public void D(double A) {
 bal+= A;
 System.out.println("Rs" + A + " your funds deposited successfully.");
  System.out.println("New balance: Rs" + bal);
     }
-    public void transfer(double A, String recipient) {
+    public void T(double A, String recipient) {
         if (bal >= A) {
             bal -= A;
-            System.out.println("Rs" + A + " is transferred to account " + recipient + " successfully.");
+            System.out.println("Rs" + A + " is transferred to account " + r + " successfully.");
             System.out.println("your New balance: Rs" + bal);
         } else {
             System.out.println("Insufficient funds.");
