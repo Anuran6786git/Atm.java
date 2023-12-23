@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class Ai {
     private static final String[] UI = {"6534", "6542", "3475", "2974", "7124"};
     private static final String[] P = {"7542", "2178", "9123", "8324", "6534"};
     private double bal;
+    private List<String> transactionHistory = new ArrayList<>();
+
     public static void main(String[] args) {
         Ai ai = new Ai();
         Scanner scanner = new Scanner(System.in);
@@ -30,7 +34,7 @@ public class Ai {
             System.out.println("\n-------------------");
             System.out.println("\nATM Menu:");
             System.out.println("\n--------------------");
-            System.out.println("1.Transactions History");
+            System.out.println("1. Transactions History");
             System.out.println("2. Withdraw");
             System.out.println("3. Deposit");
             System.out.println("4. Transfer");
@@ -69,26 +73,34 @@ public class Ai {
     }
     public void TH() {
         System.out.println("Transaction History:");
+        for (String transaction : transactionHistory) {
+            System.out.println(transaction);
+        }
     }
+
     public void W(double A) {
         if (bal >= A) {
             bal -= A;
-            System.out.println("Rs" + A + " withdrawn successfully.");
-            System.out.println("New balance: Rs" + bal);
+            String transaction = "Withdraw: Rs" + A + " - New balance: Rs" + bal;
+            transactionHistory.add(transaction);
+            System.out.println(transaction);
         } else {
             System.out.println("Insufficient funds.");
         }
     }
+
     public void D(double A) {
         bal += A;
-        System.out.println("Rs" + A + " your funds deposited successfully.");
-        System.out.println("New balance: Rs" + bal);
+        String transaction = "Deposit: Rs" + A + " - New balance: Rs" + bal;
+        transactionHistory.add(transaction);
+        System.out.println(transaction);
     }
     public void T(double A, String recipient) {
         if (bal >= A) {
             bal -= A;
-            System.out.println("Rs" + A + " is transferred to account " + recipient + " successfully.");
-            System.out.println("Your New balance: Rs" + bal);
+            String transaction = "Transfer: Rs" + A + " to account " + recipient + " - New balance: Rs" + bal;
+            transactionHistory.add(transaction);
+            System.out.println(transaction);
         } else {
             System.out.println("Insufficient funds.");
         }
